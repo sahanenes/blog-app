@@ -1,12 +1,15 @@
 from rest_framework import serializers
-from .models import Category,Blog
+from .models import Category, Blog
 
-class CategorySerializer(serializers.Serializer):
+
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = (
-            'id','name'
+            'id',
+            'name'
         )
+
 
 class BlogSerializer(serializers.ModelSerializer):
     category = serializers.StringRelatedField()
